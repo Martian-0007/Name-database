@@ -10,4 +10,5 @@ file = "names.txt"
 
 # The code itself
 for i in range(GN):
+    fx.flwrite(file, str(i+1)+"# ")
     fx.getWriteName(file)
