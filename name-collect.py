@@ -37,10 +37,10 @@ while(more): #WIP here
 fx.flwrite(file, "\n    ]\n}")
 
 # Print out the file full of names
-f = open(file, "r")
-print("\nVýpis účastníků:")
-print("\n"+f.read())
-f.close
+#f = open(file, "r")
+#print("\nVýpis účastníků:")
+#print("\n"+f.read())
+#f.close
 
 #API send
 payload = open(file, 'rb').read()
