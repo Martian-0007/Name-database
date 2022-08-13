@@ -16,6 +16,7 @@ def getWriteNamejs(filename):
     import json
     f = open(filename, "a")
     name = input("Jak se jmenuješ?\n")
+    name = json(name)
     name = name.json()
     jsname = json.dumps(name)
     f.write(jsname+"\n")
@@ -25,6 +26,7 @@ def flwritejs(filename, content):
     # Utility for writing into a file
     import json
     f = open(filename, "a")
+    content = json(content)
     content = content.json()
     jscontent = json.dumps(content)
     f.write(jscontent)

@@ -14,8 +14,8 @@ i = 1
 # The code itself
 while(more): #WIP here
     # Write of the names into the file
-    fx.flwritejs(file, str(i)+"# ")
-    fx.getWriteNamejs(file)
+    fx.flwrite(file, str(i)+"# ")
+    fx.getWriteName(file)
     print()
     morein = input("Ještě někdo? [Y/n]")
     if morein != "Y":
