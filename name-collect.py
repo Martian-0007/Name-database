@@ -9,6 +9,7 @@ import requests
 now = datetime.now()
 current_time = now.strftime("%d-%m-%Y_%H.%M.%S")
 file = "C://Users/marta/Documents/GitHub/Name-database/files/names-"+current_time+".json"
+fx.flwrite("files/nof", "names-"+current_time+".json\n")
 more = True
 i = 1
 url = "https://getpantry.cloud/apiv1/pantry/fbd15934-f1bf-4621-9086-e28c9e1c3b7c/basket/names-"+current_time+".json"
