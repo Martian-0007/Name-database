@@ -8,7 +8,7 @@ import requests
 # Variables
 now = datetime.now()
 current_time = now.strftime("%d-%m-%Y_%H.%M.%S")
-file = "C://Users/marta/Documents/GitHub/Name-database/files/names-"+current_time+".json"
+file = "files/names-"+current_time+".json"
 fx.flwrite("files/nof", "names-"+current_time+".json\n")
 more = True
 i = 1
