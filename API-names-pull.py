@@ -16,6 +16,7 @@ response = requests.get(url)
 
 response = response.json()
 
+# Wriing into a file
 JsonResponse = json.dumps(response)
 filename = open("files/response"+current_time+".json", "a")
 filename.write(JsonResponse)
