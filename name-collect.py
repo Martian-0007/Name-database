@@ -2,20 +2,20 @@
 from datetime import datetime
 import name_collect_functions as fx
 import os
-from datetime import datetime
+import json
 
 # Variables
 now = datetime.now()
 current_time = now.strftime("%d-%m-%Y_%H.%M.%S")
-file = "C://Users/marta/Documents/GitHub/Name-database/files/names-"+current_time+".txt"
+file = "C://Users/marta/Documents/GitHub/Name-database/files/names-"+current_time+".json"
 more = True
 i = 1
 
 # The code itself
 while(more): #WIP here
     # Write of the names into the file
-    fx.flwrite(file, str(i)+"# ")
-    fx.getWriteName(file)
+    fx.flwritejs(file, str(i)+"# ")
+    fx.getWriteNamejs(file)
     print()
     morein = input("Ještě někdo? [Y/n]")
     if morein != "Y":
