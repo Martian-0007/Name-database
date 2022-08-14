@@ -41,7 +41,7 @@ while(more):
 
 
 #API send
-payload = open(file, 'rb').read()
+payload = json.dumps(jsfile, indent=2)
 
 response = requests.request("POST", url, headers=headers, data=payload)
 
