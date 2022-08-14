@@ -3,3 +3,6 @@ tests2.py
 \files
 \__pycache__
 API.py
+venv/
+__pycache__/
+test_fx.py
