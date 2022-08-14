@@ -6,3 +6,4 @@ API.py
 venv/
 __pycache__/
 test_fx.py
+data.json

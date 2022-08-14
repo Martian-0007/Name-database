@@ -1,5 +1,6 @@
 # Import of modules
 from datetime import datetime
+from distutils.log import info
 import name_collect_functions as fx
 import os
 import json
@@ -13,35 +14,36 @@ more = True
 i = 1
 url = "https://getpantry.cloud/apiv1/pantry/fbd15934-f1bf-4621-9086-e28c9e1c3b7c/basket/names"
 headers = {'Content-Type': 'application/json'}
+now = fx.CurTime()
+ppl = []
 
 
-# The code itself
-fx.flwrite(file, """{
-    \"time\": \""""+current_time+"""\",
-    \"names\": [\n""")
-
-while(more): #WIP here
-    # Write of the names into the file
-    fx.flwrite(file, "        {\"id\": "+str(i)+", ")
-    fx.getWriteNamejs(file)
-    fx.flwrite(file, ", \"TimeOfArrival\": \""+fx.CurTime()+"\"")
-    fx.flwrite(file, "}")
+while(more):
+    personinfo = {}
+    personinfo["no."] = i
+    personinfo["jmeno"] = input("Jak se jmenujes?\n")
+    personinfo["TimeOfArrival"] = now
+    print(personinfo)
+    ppl.append(personinfo)
+    finaljs = json.dumps(ppl, ensure_ascii=False, indent=2)
     print()
+
     morein = input("Ještě někdo? [Y/n]")
     if morein == "n":
         more = False
+        with open('files/data.json', 'w') as soubor:
+            print(finaljs, file=soubor)
     elif morein == "Y":
-        fx.flwrite(file, ",\n")
+        more = True
     else:
         raise ValueError(morein+' neni Y/n')
     print()
     i = i+1
 
-fx.flwrite(file, "\n    ]\n}")
 
 #API send
 payload = open(file, 'rb').read()
 
-response = requests.request("POST", url, headers=headers, data=payload)
+#response = requests.request("POST", url, headers=headers, data=payload)
 
-print(response.text)
+#print(response.text)
