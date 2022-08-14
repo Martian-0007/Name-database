@@ -6,31 +6,34 @@ import json
 import requests
 
 # Variables
-now = datetime.now()
-current_time = now.strftime("%d-%m-%Y_%H.%M.%S")
+current_time = fx.CurTime()
 file = "files/names-"+current_time+".json"
 fx.flwrite("files/nof", "names-"+current_time+".json\n")
 more = True
 i = 1
-url = "https://getpantry.cloud/apiv1/pantry/fbd15934-f1bf-4621-9086-e28c9e1c3b7c/basket/names-"+current_time+".json"
+url = "https://getpantry.cloud/apiv1/pantry/fbd15934-f1bf-4621-9086-e28c9e1c3b7c/basket/names"
 headers = {'Content-Type': 'application/json'}
 
 
 # The code itself
 fx.flwrite(file, """{
+    \"time\": \""""+current_time+"""\",
     \"names\": [\n""")
 
 while(more): #WIP here
     # Write of the names into the file
     fx.flwrite(file, "        {\"id\": "+str(i)+", ")
     fx.getWriteNamejs(file)
+    fx.flwrite(file, ", \"TimeOfArrival\": \""+fx.CurTime()+"\"")
     fx.flwrite(file, "}")
     print()
     morein = input("Ještě někdo? [Y/n]")
-    if morein != "Y":
+    if morein == "n":
         more = False
-    else:
+    elif morein == "Y":
         fx.flwrite(file, ",\n")
+    else:
+        raise ValueError(morein+' neni Y/n')
     print()
     i = i+1
 
